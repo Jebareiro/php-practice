@@ -1,156 +1,218 @@
-
+<?php
 /*
-- Crea ejemplos de funciones básicas que representen las diferentes
-posibilidades del lenguaje: 
+ * EJERCICIO:
+ * - Crea ejemplos utilizando todos los tipos de operadores de tu lenguaje:
+ *   Aritméticos, lógicos, de comparación, asignación, identidad, pertenencia, bits...
+ */
 
- *   Sin parámetros ni retorno, con uno o varios parámetros, con retorno...
- * - Comprueba si puedes crear funciones dentro de funciones.
- * - Utiliza algún ejemplo de funciones ya creadas en el lenguaje.
- * - Pon a prueba el concepto de variable LOCAL y GLOBAL.
- * - Debes hacer print por consola del resultado de todos los ejemplos.
- *   (y tener en cuenta que cada lenguaje puede poseer más o menos posibilidades)  */
+/* * - Utilizando las operaciones con operadores que tú quieras, crea ejemplos
+ *   que representen todos los tipos de estructuras de control que existan
+ *   en tu lenguaje:
+ *   Condicionales, iterativas, excepciones...
+ */
 
-
-  echo "FUNCIONES" . "<br/>"; # Imprime la palabra funciones 
-
-/* echo: puede imprimir varios valores separados por comas.
-		echo "Hola", " ", "Mundo";
-	print: solo acepta un argumento y retorna 1
-    	print "Hola" . "Mundo";
-        print("Hola");
-*/
-    
-    
-// -------------- FUNCION SIMPLE -----
-
-echo "----Funcion Simple----";
+echo "Operadores Aritmeticos: ";
+echo "<br/>";
+echo "Suma: 10 + 7 = " . (10 + 7) . "<br/>";
+echo "Resta: 10 - 5 = " . (10 - 5) . "<br/>";
+echo "Multiplicacion: 10 * 2 = " . (10 * 2) . "<br/>";
+echo "Division: 10 / 2 = " . (10 / 2) . "<br/>";
+echo "Exponentes: 10 ** 3 = " . (10 ** 3) . "<br/>";
 echo "<br/>";
 
- function ejemplo(){
- 		echo "Mi funcion". "\n";
- }
-
-echo ejemplo();
+echo "----Operadores de Asignacion----";
 echo "<br/>";
-  
+$numero = 42;
+$mensaje = "Hola Mundo";
 
-// ------------- FUNCION CON PARAMETRO
-
-echo "----Funcion con Parametro----";
+echo "----Asignacion y Suma----";
 echo "<br/>";
+$contador = 5;
+$contador += 3;
+echo "Contador += 3 => $contador<br/>";
 
-function ejemplo_con_parametro($name){
-		echo "Mi nombre es ". $name . "\n";
+echo "----Asignacion y Resta----";
+echo "<br/>";
+$asignacion_resta = 10;
+$asignacion_resta -= 3;
+echo "Resta => $asignacion_resta<br/>";
+
+echo "----Asignacion y Multiplicacion----";
+echo "<br/>";
+$asignacion_multiplicacion = 4;
+$asignacion_multiplicacion *= 3;
+echo "Multiplicacion => $asignacion_multiplicacion<br/>";
+
+echo "----Asignacion y Division----";
+echo "<br/>";
+$asignacion_division = 15;
+$asignacion_division /= 3;
+echo "Division => $asignacion_division<br/>";
+
+echo "----Asignacion y Modulo----";
+echo "<br/>";
+$asignacion_modulo = 15;
+$asignacion_modulo %= 4;
+echo "Modulo => $asignacion_modulo<br/>";
+
+echo "----Asignacion y Exponente (**=)----";
+echo "<br/>";
+$asignacion_expo = 2;
+$asignacion_expo **= 3;
+echo "Exponente => $asignacion_expo<br/>";
+
+//---------------------------------------------
+
+echo "----Operadores de Comparacion / Operadores Logicos----";
+echo "<br/>";
+echo "----Igual---- ( == )<br/>";
+
+$a = 10;
+$b = 10;
+
+if ($a == $b) {
+    echo "los valores coinciden<br/>";
+} else {
+    echo "Los valores no coinciden<br/>";
 }
 
-echo ejemplo_con_parametro("Jessica");
-echo "<br/>";
+echo "----Diferente (!= o <>)----<br/>";
+$c = 10;
+$d = 20;
 
-// ------------- FUNCION CON PARAMETRO POR DEFECTO
-echo "----Funcion con Parametro por Defecto----";
-echo "<br/>";
-
-function ejemplo_funcion_default($parametro1 = "Name", $parametro2 = "LastName"){
-		echo "Mi nombre y apellido es: " . $parametro1. "\n" . $parametro2;
+if ($c != $d) {
+    echo "Los Valores son diferentes<br/>";
+} else {
+    echo "Los Valores son iguales<br/>";
 }
 
-ejemplo_funcion_default();
-echo "<br/>";
+echo "---- Mayor o Menor que (< >)----<br/>";
+$e = 40;
+$f = 30;
 
-
-/* Se llama "Por defecto" porque por mas que no le pases ningun argumento 
-este te da por defecto los valores que diste antes
-Mi nombre y apellido es: Name LastName */
-
-// ----------------------------------
-
-echo "---- Funciones con Parametros ---- ";
-echo "<br/>";
-
-
-function ejemplo_funcion_con_parametros($name, $lastname){
-	echo "Mi nombre y Apellido es: " .$name ."\n" . $lastname . "<br/>";  
-}
-echo ejemplo_funcion_con_parametros("Jessica", "Bareiro");
-
-
-// ------------------ Funcion con Parametro y retorno
-echo "----Funcion con Parametro y Retorno ----";
-echo "<br/>";
-
-function funcion_de_retorno($num1, $num2){
-	return $num1 + $num2;
+if ($e > $f) {
+    echo "E es mayor que F<br/>";
+} else {
+    echo "F es mayor que E<br/>";
 }
 
-$suma = funcion_de_retorno(10, 11);
-	echo "El resultado de la suma es: " . $suma;
-  
-echo "<br/>";
+echo "---- Mayor o Igual ( >= )----<br/>";
+$g = 10;
+$h = 11;
 
+if ($g >= $h) {
+    echo "G es mayor o igual que H<br/>";
+} else {
+    echo "H es mayor o igual que G<br/>";
+}
 
-// ------------ Funcion Dentro de otra Funcion
-echo "---Funcion dentro de otra funcion---";
-echo "<br/>";
+echo "AND (&& o and)<br/>";
+$edad = 23;
+$nombre = "Jessica";
 
-function funcion_uno(){
-	function funcion_dos(){
-    	echo "Esta es una funcion dentro de otra funcion";
+if ($edad >= 18 && $nombre == "Jessica") {
+    echo "Los datos coinciden<br/>";
+} else {
+    echo "Los Datos no coinciden<br/>";
+}
+
+$j = 10;
+$k = 5;
+$l = 20;
+
+if ($j > $k && $k < $l) {
+    echo "El valor está entre el valor de j y l<br/>";
+} else {
+    echo "El valor de j no está entre el valor de k y l<br/>";
+}
+
+echo "---- OR  - || ----<br/>";
+$m = 10;
+$n = 4;
+$o = 20;
+
+if ($a > $b || $a > $c) {
+    echo "El valor de a es mayor que el valor de b o c<br/>";
+} else {
+    echo "El valor de a no es mayor que el valor de b ni c<br/>";
+}
+
+echo "---- XOR -----<br/>";
+$p = true;
+$q = false;
+
+if ($p xor $q) {
+    echo "Solo una de las variables es verdadera.<br/>";
+}
+
+echo "---- Concatenación ----<br/>";
+$nombre = "Jessica";
+$apellido = "Bareiro";
+$nombre_completo = $nombre . " " . $apellido;
+
+echo $nombre_completo . "<br/>";
+
+//-------------------------------------
+
+echo "Estructura de Control<br/>";
+echo "----Condicionales----<br/>";
+echo "if<br/>";
+echo "elseif<br/>";
+echo "else<br/>";
+
+echo "----Switch---- (case)<br/>";
+$fruta = "manzana";
+
+switch ($fruta) {
+    case "naranja":
+        echo "La fruta es una naranja<br/>";
+        break;
+    case "manzana":
+        echo "La fruta es manzana<br/>";
+        break;
+    case "limon":
+        echo "La fruta es un limon<br/>";
+        break;
+}
+
+echo "----While----<br/>";
+$numero = 4;
+
+while ($numero <= 10) {
+    echo $numero++ . "<br/>";
+}
+
+echo "----do - while----<br/>";
+$numero = 10;
+
+do {
+    echo $numero . "<br/>";
+    $numero++;
+} while ($numero <= 5);
+
+echo "----for----<br/>";
+for ($numero = 1; $numero <= 10; $numero++) {
+    echo $numero . "<br/>";
+}
+
+echo "----foreach----<br/>";
+$array = array(1, 2, 10, 9);
+
+foreach ($array as $valor) {
+    echo $valor . "<br/>";
+}
+
+//--------------------------------------
+
+/* DIFICULTAD EXTRA (opcional):
+ * Crea un programa que imprima por consola todos los números comprendidos
+ * entre 10 y 55 (incluidos), pares, y que no son ni el 16 ni múltiplos de 3.
+ */
+
+echo "Dificultad Extra<br/>";
+for ($i = 10 ; $i <= 55 ; $i++) {
+    if ($i % 2 === 0 && $i !== 16 && $i % 3 !== 0) {
+        echo $i . "<br/>";
     }
-  	funcion_dos();
-}
-funcion_uno();
-echo "<br/>";
-
-// ------------ Ejemplos de funciones ya creadas en el lenguaje
-echo "<br/>";
-echo "· · · Funciones ya Creadas · · ·";
-echo "<br/>";
-
-$numeros = [1, 2, 3, 4, 5];
-$cuadrados = [];
-
-foreach ($numeros as $numero){
-    $cuadrado = $numero * $numero;
-    $cuadrados[] = $cuadrado;
 }
 
-echo "Cuadrados: " . implode(", ", $cuadrados);
-
-echo "<br/>";
-
-
-/*
- 
- * DIFICULTAD EXTRA (opcional):
- * Crea una función que reciba dos parámetros de tipo cadena de texto y retorne un número.
- * - La función imprime todos los números del 1 al 10. Teniendo en cuenta que:
- *   - Si el número es múltiplo de 3, muestra la cadena de texto del primer parámetro.
- *   - Si el número es múltiplo de 5, muestra la cadena de texto del segundo parámetro.
- *   - Si el número es múltiplo de 3 y de 5, muestra las dos cadenas de texto concatenadas.
- *   - La función retorna el número de veces que se ha impreso el número en lugar de los textos.
-
-*/
-
-echo "<br/>";
-
-function print_numbers($text1, $text2) {
-    $contador = 0;
-
-    for ($i = 1; $i <= 10; $i++) {
-        if ($i % 3 == 0 && $i % 5 == 0) {
-            echo $text1 . $text2 . "\n";
-        } elseif ($i % 3 == 0) {
-            echo $text1 . "\n";
-        } elseif ($i % 5 == 0) {
-            echo $text2 . "\n";
-        } else {
-            echo $i . "\n";
-            $contador++;
-        }
-    }
-
-    return $contador;
-}
-
-$cuenta = print_numbers("Fizz", "Buzz");
-echo "cantidad de veces que se imprimio un numero: $cuenta\n";
