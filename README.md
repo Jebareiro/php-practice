@@ -1,8 +1,7 @@
 # PHP Practice
 
-Este repositorio contiene prácticas y ejercicios en PHP divididos en tres secciones:
+Este repositorio contiene prácticas y ejercicios en PHP:
 
-- **`w3schools/`** – Ejercicios básicos y ejemplos adaptados del sitio W3Schools, ideales para reforzar los fundamentos.
 - **`mouredev/`** – Retos de programación inspirados en el contenido de MoureDev, resueltos con PHP.
 - **`challenges/`** – Desafíos adicionales, problemas propios o ideas prácticas para aplicar lo aprendido.
 
